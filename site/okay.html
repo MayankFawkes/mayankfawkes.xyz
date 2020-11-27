@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test Page</title>
+	<script type="text/javascript">
+// YouTube video ID
+var videoID = "CMNry4PE93Y";
+fetch('https://cors-anywhere.herokuapp.com/' + "https://www.youtube.com/get_video_info?video_id=" + videoID).then(response => {
+  if (response.ok) {
+    response.text().then(ytData => {
+      
+      // parse response to find audio info
+      var ytData = parse_str(ytData);
+      console.log(ytData);
+      var getAdaptiveFormats = JSON.parse(ytData.player_response).streamingData.adaptiveFormats;
+      var findAudioInfo = getAdaptiveFormats.findIndex(obj => obj.audioQuality);
+      console.log(findAudioInfo)
+      
+      // get the URL for the audio file
+      var audioURL = getAdaptiveFormats[findAudioInfo].url;
+      
+      // update the <audio> element src
+      var youtubeAudio = document.getElementById('youtube');
+      youtubeAudio.src = audioURL;
+      
+    });
+  }
+});
+
+function parse_str(str) {
+  return str.split('&').reduce(function(params, param) {
+    var paramSplit = param.split('=').map(function(value) {
+      return decodeURIComponent(value.replace('+', ' '));
+    });
+    params[paramSplit[0]] = paramSplit[1];
+    return params;
+  }, {});
+}
+	</script>
+</head>
+<body>
+	<audio id="youtube" controls></audio>
+</body>
+</html>
