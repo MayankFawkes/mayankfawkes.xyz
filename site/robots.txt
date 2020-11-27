@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.mayankfawkes.xyz/sitemap.xml
+Sitemap: https://mayankfawkes.xyz/sitemap.xml
