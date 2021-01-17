@@ -3,6 +3,9 @@
 	src: url(MesloLGS-Regular.d20aa15f.ttf);
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+body {
+	overflow: hidden;
+}
 .dark {
 	fill:hsl(0,0%,calc((100 - var(--light, 5))*1%));
 	color: hsl(0,0%,calc((100 - var(--light, 5))*1%));
