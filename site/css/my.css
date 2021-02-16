@@ -3,9 +3,12 @@
 	src: url(MesloLGS-Regular.d20aa15f.ttf);
 }
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
 body {
-	overflow: hidden;
+ width: 100vw;
+ overflow: hidden;
 }
+
 .dark {
 	fill:hsl(0,0%,calc((100 - var(--light, 5))*1%));
 	color: hsl(0,0%,calc((100 - var(--light, 5))*1%));
@@ -80,6 +83,7 @@ span {
 	height: 100%;
 	width: 100%;
 	place-items: center;
+	padding-bottom: 20px;
 }
 .intro {
 	font-family: myintro;
@@ -91,8 +95,49 @@ img {
 	height: auto;
 	padding: 30px;
 }
+
+@media (min-width: 300px) and (max-width: 400px) {
+	img {
+		width: 150px;
+		height: auto;
+		padding: 10px;
+	}
+	.intro {
+		font-family: myintro;
+		font-size: 20px;
+		padding: 18px;
+	}
+	.topright {
+		padding: 10px 0px;
+		position: absolute;
+		width: 30px;
+		top: 8px;
+		right: 0px;
+	}
+}
+
+@media (min-width: 401px) and (max-width: 760px) {
+	img {
+		width: 220px;
+		height: auto;
+		padding: 25px;
+	}
+	.intro {
+		font-family: myintro;
+		font-size: 18px;
+		padding: 20px;
+	}
+	.topright {
+		padding: 10px 0px;
+		position: absolute;
+		width: 30px;
+		top: 8px;
+		right: 8px;
+	}
+}
 .w{
 	display: inline-flex;
+	padding-bottom: 20px;
 }
 .w .i{
 	margin: 0 35px;
