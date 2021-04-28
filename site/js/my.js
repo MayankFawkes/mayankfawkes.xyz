@@ -99,4 +99,16 @@ function inits() {
   runname();
   whendone();
 }
-fetch("/body.html").then((res)=>{return res.text();}).then((data)=>{setTimeout(()=>{window.document.body.innerHTML=data;inits();},3000);}).catch((err)=>{console.log("error");});
+const getBody = async () => {
+	let res = await fetch("/body.html");
+	if (res.ok) {
+		return await res.text()
+	}
+	else {
+		console.log(res);
+	}
+}
+
+window.onload = async () => {
+	window.document.body.innerHTML = await getBody();inits()
+}
